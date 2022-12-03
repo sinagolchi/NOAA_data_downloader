@@ -1,8 +1,7 @@
 import streamlit as st
 import requests
 import pandas as pd
-import folium
-from streamlit_folium import st_folium
+
 import datetime
 header = {'token':'FNSThFbJGsLcmJazhidBvgMjkxqBXLMA'}
 import matplotlib.pyplot as plt
