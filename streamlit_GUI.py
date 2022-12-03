@@ -3,7 +3,7 @@ import requests
 import pandas as pd
 
 import datetime
-header = {'token':'FNSThFbJGsLcmJazhidBvgMjkxqBXLMA'}
+header = {'token': st.secrets['token']}
 
 
 #response = requests.get("https://www.ncei.noaa.gov/cdo-web/api/v2/stations?locationid=FIPS:NI", headers=header)
