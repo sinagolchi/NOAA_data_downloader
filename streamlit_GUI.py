@@ -4,7 +4,7 @@ import pandas as pd
 
 import datetime
 header = {'token':'FNSThFbJGsLcmJazhidBvgMjkxqBXLMA'}
-import matplotlib.pyplot as plt
+
 
 #response = requests.get("https://www.ncei.noaa.gov/cdo-web/api/v2/stations?locationid=FIPS:NI", headers=header)
 s_date = st.date_input('start date',value=datetime.date(1942,7,6),min_value=datetime.date(1940,7,6),max_value=datetime.date(2022,11,30))
