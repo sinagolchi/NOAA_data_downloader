@@ -40,6 +40,7 @@ station = st.selectbox('Station',options=df_station['id'])
 df_station = df_station.set_index('id')
 
 date_range = pd.date_range(start=df_station.loc[station,'mindate'],end=df_station.loc[station,'maxdate'],freq='A')
+date_range = date_range.insert(len(date_range),df_station.loc[station,'maxdate'])
 
 
 
