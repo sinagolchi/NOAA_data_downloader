@@ -55,11 +55,26 @@ for i in range(len(date_range)-1):
 
 big_data = pd.concat(dataframes)
 
+
+
 st.download_button('Download CSV',big_data.to_csv().encode('utf-8'),"file.csv","text/csv")
+
+big_data['date'] = pd.to_datetime(big_data['date'], format='%Y-%m-%d')
+df1 = big_data.set_index('date')
+df2 = big_data.groupby(pd.Grouper(key='date',freq='M'))['value'].sum()
+
+import matplotlib.pyplot as plt
+import plotly_express as plx
+st.dataframe(df2)
 # st.dataframe(big_data)
-#big_data['date'] = pd.to_datetime(big_data['date'], format='%Y-%m-%d')
-# # big_data['format_date'] = big_data['date'].dt.strftime('%Y/%m/%d')
 #
-# big_data.plot(x='date',y='value')
-# plt.xticks(rotation=45)
-# st.pyplot(plt.gcf())
+# # big_data['format_date'] = big_data['date'].dt.strftime('%Y/%m/%d')
+
+df2.plot(x='date',y='value')
+plt.xticks(rotation=45)
+
+df2.rename('PRCP',inplace=True)
+
+fig = plx.line(df2, x=df2.index, y='PRCP', title='Station PRCP data')
+st.plotly_chart(fig)
+#st.pyplot(plt.gcf())
