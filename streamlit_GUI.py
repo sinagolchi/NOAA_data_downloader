@@ -74,6 +74,7 @@ df2.plot(x='date',y='value')
 plt.xticks(rotation=45)
 
 df2.rename('PRCP',inplace=True)
+st.download_button('Download Cumulative data CSV',df2.to_csv().encode('utf-8'),f"{station}_monthly_cumulative.csv","text/csv")
 
 fig = plx.line(df2, x=df2.index, y='PRCP', title='Station PRCP data')
 st.plotly_chart(fig)
